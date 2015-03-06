@@ -1,4 +1,7 @@
 default:
+  formatters:
+    html:
+      output_path: %paths.base%/build/html/behat
   suites:
     default:
       contexts:
@@ -12,6 +15,8 @@ default:
         - Drupal\DrupalExtension\Context\DrupalContext: ~
         - Drupal\DrupalExtension\Context\MessageContext: ~
   extensions:
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
     Behat\MinkExtension:
       goutte: ~
       selenium2: ~
