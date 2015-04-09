@@ -310,7 +310,8 @@ class RawPropeopleContext extends RawDrupalContext implements SnippetAcceptingCo
         // be thrown: "Unable to access the response content before visiting a page".
         $session->visit($this->locatePath('/'));
 
-        if (!empty($session->getCookie(session_name()))) {
+        $cookie_value = $session->getCookie(session_name());
+        if (!empty($cookie_value)) {
             return true;
         }
 
